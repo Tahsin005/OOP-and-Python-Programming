@@ -1,0 +1,5 @@
+Iterating through a tuple is faster than in a list
+
+List are mutable whereas tuples are immutable
+
+Tuples that contain immutable elements can be used as a key for a dictionary
