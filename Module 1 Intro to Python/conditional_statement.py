@@ -26,7 +26,7 @@ if boss == False:
     print("Lunch er pore ashen")
 else:
     print("Sir ekkhoni kore dibo")
-    
+     
 # Nested Conditions
 if boss == True:
     if num1 < 12:

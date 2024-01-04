@@ -24,5 +24,5 @@ print(type(is_single))
 
 """ String concatenation """
 # print('MD. Tahsin ' + 'Ferdous')
-text = f"MD. Tahsin Ferdous {age}, who lives is {district}"
+text = f"MD. Tahsin Ferdous {age}, who lives is {district}" # f-string
 print(text)

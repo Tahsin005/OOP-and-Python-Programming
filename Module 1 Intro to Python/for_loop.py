@@ -10,9 +10,12 @@
 # for i in range(1,10,2):
 #     print(i)
 
-# friends = ['Tahsin','Mahin','Niloy','Rean','Rizu','Aziz','Ridwan','Emon','Mahadi']
-# for friend in friends:
-#     print(friend)
+friends = ['Tahsin','Mahin','Niloy','Rean','Rizu','Aziz','Ridwan','Emon','Mahadi']
+for friend in friends:
+    print(friend)
+print("With indexing : ")
+for i in range(0, len(friends)):
+    print(friends[i])
 
-for i in range(5):
-    print(i)
+# for i in range(5):
+#     print(i)
