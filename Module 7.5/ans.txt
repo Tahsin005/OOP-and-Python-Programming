@@ -1,0 +1,139 @@
+1. Write what is meant by operator overloading and method overriding with examples.
+Answer:
+
+    Operator overloading:
+
+    Operator overloading is a feature in oop that allows operator 
+    to be used with user-defined data types in addition to their standard use with built-in data types. In other words, you can redefine the behaviour for your custom classes.
+
+    Example:
+        class Person:
+            def __init__(self, name, age, height, weight) -> None:
+                self.name = name
+                self.age = age
+                self.height = height
+                self.weight = weight
+
+
+
+
+        class Cricketer(Person):
+            def __init__(self, name, age , height, weight, team) -> None:
+                self.team = team
+                super().__init__(name, age, height, weight)
+
+
+
+
+            def __add__(self, other):
+                return self.age + other.age
+        
+        sakib = Cricketer('Sakib', 36, 68, 91)
+        mushfiq = Cricketer('Rahim', 36, 68, 88)
+        print(sakib + mushfiq)
+    
+    Method overloading:
+
+    Method overloading is an ability of OOP language that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its super-class or parent class. When a method in a subclass has the same name, same parameters & the same return type(or sub-type) as a method in its super-class, then the method in the subclass is said to override the method in the super-class
+
+    Example:
+        class Person:
+            def __init__(self,name,weight,height) -> None:
+                self.name=name
+                self.weight=weight
+                self.height=height
+
+            def eat(self):
+                print('I am eating')
+
+
+        class Cricketer(Person):
+            def __init__(self,name,weight,height,team):
+                self.team=team
+                super().__init__(name,weight,height)
+
+
+            def eat(self):
+                print('Vegetables')
+
+
+2. Write down 4 difference between the class method and static method with proper examples
+Answer:
+    The differences between class methods and static methods in Python:
+
+    Feature	                          Class Method	                                Static Method
+    Decorator Usage	                  @classmethod	                                @staticmethod
+    Parameter Passing	              cls (class reference) as the first parameter	No reference to class or instance
+    Access to Class Attributes	      Can access and modify class attributes	    Cannot access or modify class attributes
+    Access to Instance Attributes	  Cannot access or modify instance attributes	Cannot access or modify instance attributes
+
+
+    Example:
+        class MyClass:
+            class_variable = "I am a class variable"
+
+            @classmethod
+            def class_method(cls):
+                print(cls.class_variable)
+
+            @staticmethod
+            def static_method():
+                print("I am a static method")
+
+        MyClass.class_method()  # Output: I am a class variable
+        MyClass.static_method()  # Output: I am a static method
+
+
+
+
+3. Write what are getter and setter with proper examples
+
+Answer:
+    a. read-only --> You cannot set / change the value
+    b. getter --> Used to get a value of a property through a method. Most of them will use private attribute.
+    c. setter --> Used to set a value of a property through a method. Most of the time, you will set the value of private property
+
+    Example:
+        class User:
+            def __init__(self,name,age,money) -> None:
+                self._name=name
+                self._age=age
+                self.__money=money
+
+        # getter without any setter is a read-only attribute
+            @property
+            def age(self):
+                return self._age
+            
+            #getter
+            @property
+            def salary(self):   #this is private
+                return self .__money
+            
+
+            #setter
+            @salary.setter
+            def salary(self,value):
+                if value<0:
+                    return 'salary cannot be negative'
+                self.__money+=value
+                
+
+        samsu=User('kopa',34,1000)
+        print(samsu.age)
+        print(samsu.salary)
+        samsu.salary=1200
+        print(samsu.salary)
+
+
+4. Explain the difference between inheritance and composition with proper examples.
+
+Answer:
+    Feature	            Inheritance	                                                            Composition
+    Definition	        A new class inherits properties and behaviors of an existing class.	    Constructing a class using instances of other classes.
+    Relationship Type	"Is-a" relationship.	                                                "Has-a" relationship.
+    Code Reuse	        Promotes code reuse.	                                                Emphasizes flexibility; may involve more code to delegate tasks.
+    Coupling	        Tight coupling between base and derived classes.	                    Loose coupling between composed classes.
+    Flexibility	        Limited flexibility; changes in base class can affect derived classes.	Offers flexibility; components can be easily replaced or upgraded.
+    Code Organization	Promotes a hierarchical structure.	                                    Emphasizes relationships between objects.
+    Example	python class Dog(Animal): def speak(self): return f"{self.name} says Woof!"	python class Car: def __init__(self): self.engine = Engine() def start(self): return f"Car started. {self.engine.start()}"
